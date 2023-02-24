@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -71,7 +72,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         if (binding.etCPassword.getText().toString().equals("") ||
                 binding.etPassword.getText().toString().equals("") ||
                 binding.etLID.getText().toString().equals("") ||
-                binding.spinner.getSelectedItem().toString().equals("")) {
+                binding.spinner.getSelectedItem().toString().equals("") ||
+        binding.etMNO.getText().toString().equals("")) {
             Toast.makeText(this, "Please Fill all the details!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -108,6 +110,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         binding.progressCircular.setVisibility(View.VISIBLE);
         binding.bSignUp.setVisibility(View.GONE);
         String LID = binding.etLID.getText().toString();
+        String mNO = binding.etMNO.getText().toString();
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(mNO.split(",")));
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("MinesData").child(LID);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -123,7 +127,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                     jsonData.setLID(LID);
                     jsonData.setPassword(password);
                     jsonData.setDistrict(binding.spinner.getSelectedItem().toString());
-                    FirebaseDatabase.getInstance().getReference().child("MinesData").child(LID).setValue(jsonData);
+                    jsonData.setMineNumber(list);
+                    FirebaseDatabase.getInstance().getReference().child("AllMinesData").child(LID).setValue(jsonData);
                     Toast.makeText(SignUpActivity.this, "Account Successfully Created!", Toast.LENGTH_SHORT).show();
                     binding.progressCircular.setVisibility(View.GONE);
                     binding.bSignUp.setVisibility(View.VISIBLE);

@@ -51,8 +51,6 @@ public class AddRecordActivity extends AppCompatActivity implements AdapterView.
     String pass;
     JsonData jsonData;
     SharedPreferences preferences;
-    private DatabaseReference mDatabaseRef;
-    private StorageReference mStorageRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -254,7 +252,7 @@ public class AddRecordActivity extends AppCompatActivity implements AdapterView.
                 Toast.makeText(AddRecordActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
             }).addOnFailureListener(e -> {
                 visibilityGone();
-                Toast.makeText(AddRecordActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(AddRecordActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             });
 
         }

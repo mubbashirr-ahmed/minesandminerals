@@ -48,8 +48,17 @@
                     android:textSize="17sp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/lease_id"/>
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="Mine Numbers"/>
 
                 <TextView
                     android:id="@+id/textView4"
@@ -91,6 +100,18 @@
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/square_edittext"
                     android:ems="10"
+                    android:inputType="textPersonName"
+                    android:paddingStart="5dp"
+                    android:textSize="15sp"
+                    android:layout_height="30dp" />
+                <EditText
+                    android:id="@+id/et_mNO"
+                    android:layout_width="220dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/square_edittext"
+                    android:ems="10"
+                    android:hint="Add comma separated values"
                     android:inputType="textPersonName"
                     android:paddingStart="5dp"
                     android:textSize="15sp"
