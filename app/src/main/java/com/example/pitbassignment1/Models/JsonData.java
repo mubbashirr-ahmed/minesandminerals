@@ -5,8 +5,18 @@ import android.location.Location;
 import java.util.ArrayList;
 
 public class JsonData {
-    String LID, password, district, mineralType, location, tStamp, vehicleNumber, qty;
+    String LID, password, district, mineralType, location, tStamp, vehicleNumber, qty, mNo;
     ArrayList<String> mineNumber;
+
+    public String getmNo() {
+        return mNo;
+    }
+
+    public void setmNo(String mNo) {
+        this.mNo = mNo;
+    }
+
+
 
     public JsonData() {
     }

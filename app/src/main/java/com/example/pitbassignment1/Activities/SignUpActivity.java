@@ -1,8 +1,5 @@
 package com.example.pitbassignment1.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +7,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.pitbassignment1.Models.JsonData;
 import com.example.pitbassignment1.databinding.ActivitySignUpBinding;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,7 +32,6 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         inItViews();
     }
-
     private void inItViews() {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -72,8 +69,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         if (binding.etCPassword.getText().toString().equals("") ||
                 binding.etPassword.getText().toString().equals("") ||
                 binding.etLID.getText().toString().equals("") ||
-                binding.spinner.getSelectedItem().toString().equals("") ||
-        binding.etMNO.getText().toString().equals("")) {
+                binding.spinner.getSelectedItem().toString().equals("")){
             Toast.makeText(this, "Please Fill all the details!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -105,13 +101,11 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
         }
     }
-
     private void createAccount(String password) {
         binding.progressCircular.setVisibility(View.VISIBLE);
         binding.bSignUp.setVisibility(View.GONE);
-        String LID = binding.etLID.getText().toString();
-        String mNO = binding.etMNO.getText().toString();
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(mNO.split(",")));
+        String LID = binding.etLID.getText().toString().trim();
+        String district = binding.spinner.getSelectedItem().toString();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("MinesData").child(LID);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -125,9 +119,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                 else{
                     JsonData jsonData = new JsonData();
                     jsonData.setLID(LID);
-                    jsonData.setPassword(password);
-                    jsonData.setDistrict(binding.spinner.getSelectedItem().toString());
-                    jsonData.setMineNumber(list);
+                    jsonData.setPassword(password.trim());
+                    jsonData.setDistrict(district);
                     FirebaseDatabase.getInstance().getReference().child("AllMinesData").child(LID).setValue(jsonData);
                     Toast.makeText(SignUpActivity.this, "Account Successfully Created!", Toast.LENGTH_SHORT).show();
                     binding.progressCircular.setVisibility(View.GONE);
@@ -145,11 +138,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
     }
-
     @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-    }
-
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {}
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         Toast.makeText(this, "Select at least one district", Toast.LENGTH_SHORT).show();

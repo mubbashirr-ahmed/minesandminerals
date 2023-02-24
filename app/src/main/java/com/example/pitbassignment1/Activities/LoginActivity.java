@@ -1,18 +1,15 @@
 package com.example.pitbassignment1.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.pitbassignment1.Models.JsonData;
-import com.example.pitbassignment1.R;
 import com.example.pitbassignment1.databinding.ActivityLoginBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +20,9 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
     SharedPreferences preferences;
+    public static String PREFS_NAME = "com.example.pitbassignment1.prefs";
+    public static String PREFS_ID = "com.example.pitbassignment1.ID";
+    public static String PREFS_DISTRICT = "com.example.pitbassignment1.District";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,25 +33,19 @@ public class LoginActivity extends AppCompatActivity {
     private void inIt() {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        preferences = getSharedPreferences("MYPREFS", MODE_PRIVATE);
+        preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         boolean key = preferences.getBoolean("loginKey", false);
-
         if (key) {
             finish();
             startActivity(new Intent(this, AddRecordActivity.class));
             return;
         }
         clickListners();
-
     }
 
     private void clickListners() {
-        binding.tvRegister.setOnClickListener(c -> {
-            startActivity(new Intent(this, SignUpActivity.class));
-        });
-        binding.bLogin.setOnClickListener(c -> {
-            verifyUser();
-        });
+        binding.tvRegister.setOnClickListener(c -> startActivity(new Intent(this, SignUpActivity.class)));
+        binding.bLogin.setOnClickListener(c -> verifyUser());
     }
 
     private void verifyUser() {
@@ -74,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     JsonData data = snapshot.getValue(JsonData.class);
+                    assert data != null;
                     String pass = data.getPassword();
                     if (!pass.equals(password)) {
                         Toast.makeText(LoginActivity.this, "In correct password", Toast.LENGTH_SHORT).show();
@@ -103,9 +98,8 @@ public class LoginActivity extends AppCompatActivity {
     private void savePrefs(JsonData data) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("loginKey", true);
-        editor.putString("ID", data.getLID());
-        editor.putString("district", data.getDistrict());
-        editor.putString("password", data.getPassword());
+        editor.putString(PREFS_ID, data.getLID());
+        editor.putString(PREFS_DISTRICT, data.getDistrict());
         editor.apply();
         binding.bLogin.setVisibility(View.VISIBLE);
         binding.progressCircular.setVisibility(View.GONE);
