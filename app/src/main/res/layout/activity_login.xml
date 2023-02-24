@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".Activities.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="304dp"
+            android:text="@string/sign_in_with_your_account"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:ems="10"
+            android:hint="@string/lease_id"
+            android:paddingStart="10dp"
+            android:background="@drawable/square_edittext"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:background="@drawable/square_edittext"
+            android:hint="@string/password"
+            android:paddingStart="10dp"
+            android:layout_marginTop="30dp"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#57a0d4"
+            android:text="@string/forgot_password" />
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/b_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/round_button"
+                android:text="@string/login" />
+            <ProgressBar
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="25dp"
+                android:id="@+id/progress_circular"
+                android:visibility="gone"
+                android:layout_width="45dp"
+                android:layout_height="45dp"/>
+        </FrameLayout>
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#57a0d4"
+            android:text="@string/don_t_have_an_account_register" />
+    </LinearLayout>
+
+</ScrollView>

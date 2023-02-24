@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.AddRecordActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:background="#286093"
+            android:layout_height="60dp">
+            <ImageView
+                android:id="@+id/bLogout"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:textColor="@color/white"
+                android:layout_margin="20dp"
+                android:layout_gravity="right"
+                android:src="@drawable/baseline_power_settings_new_24"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_margin="20dp"
+                android:layout_gravity="center"
+                android:text="Mines and Minerals "/>
+        </androidx.appcompat.widget.Toolbar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/select_district"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/etdistrict"
+                android:layout_width="199dp"
+                android:enabled="false"
+                android:layout_height="30dp"
+                android:background="@drawable/square_edittext"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:paddingStart="5dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/mineral_type"
+                android:textSize="17sp" />
+
+            <Spinner
+                android:id="@+id/spinnerMineral"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="29dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/lease_id"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/et_LeseID"
+                android:layout_width="199dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="61dp"
+                android:enabled="false"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/square_edittext"
+                android:paddingStart="5dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/vehicle_number"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/et_vehicleID"
+                android:layout_width="199dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/square_edittext"
+                android:paddingStart="5dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Mine Numeber"
+                android:textSize="17sp" />
+
+            <Spinner
+                android:id="@+id/sp_mineNumber"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Quantity"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/et_Quantity"
+                android:layout_width="199dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="65dp"
+                android:inputType="numberDecimal"
+                android:hint="Enter in Tons"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/square_edittext"
+                android:paddingStart="5dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/upload_at_least_2_photos_of_back_and_front"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/capturePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/capture_vehicle_photo_t_t"
+            android:textSize="16sp"
+            app:drawableEndCompat="@drawable/camera" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/ivFront"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                tools:srcCompat="@tools:sample/avatars" />
+            <ImageView
+                android:id="@+id/ivBacks"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/b_submit"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Submit" />
+            <ProgressBar
+                android:layout_marginStart="25dp"
+                android:id="@+id/progress_circular"
+                android:layout_width="45dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:layout_height="45dp"/>
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

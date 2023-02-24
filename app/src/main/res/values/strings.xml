@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PITBAssignment1</string>
+    <string name="sign_in_with_your_account">Sign in with your account!</string>
+    <string name="lease_id">Lease ID</string>
+    <string name="password">Password</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="don_t_have_an_account_register"><u>Don\'t have an account?Register</u></string>
+    <string name="login">LOGIN</string>
+    <string name="select_district">Select District:</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="mineral_type">Mineral Type</string>
+    <string name="vehicle_number">Vehicle Number</string>
+    <string name="upload_at_least_2_photos_of_back_and_front">Upload at least 2 photos of Back and front</string>
+    <string name="capture_vehicle_photo_t_t">Capture Vehicle Photo\t\t</string>
+</resources>
